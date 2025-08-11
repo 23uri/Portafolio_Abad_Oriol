@@ -1,0 +1,109 @@
+{% extends 'web/base.html' %}
+{% load static %}
+
+{% block title %}Contacto{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/contacto.css' %}">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.querySelector(".contact-form");
+    const contactContainer = document.querySelector(".contact-container");
+
+    // Observer para animar cuando el contenedor entra en pantalla
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                contactContainer.classList.add("show");
+            }
+        });
+    }, { threshold: 0.2 });
+
+    observer.observe(contactContainer);
+
+    // Tu código de envío de formulario con Toastify
+    form.addEventListener("submit", async function(e) {
+        e.preventDefault();
+
+        const data = {
+            Name: document.getElementById("name").value,
+            Email: document.getElementById("email").value,
+            Message: document.getElementById("message").value
+        };
+
+        try {
+            const response = await fetch("http://127.0.0.1:8001/contacts", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                Toastify({
+                    text: "✅ Mensaje enviado correctamente",
+                    duration: 3000,
+                    gravity: "bottom",
+                    position: "right",
+                    backgroundColor: "#3a86ff",
+                    stopOnFocus: true
+                }).showToast();
+                form.reset();
+            } else {
+                Toastify({
+                    text: "❌ Error al enviar el mensaje",
+                    duration: 3000,
+                    gravity: "bottom",
+                    position: "right",
+                    backgroundColor: "#3a86ff",
+                    stopOnFocus: true
+                }).showToast();                 
+            }
+        } catch (error) {
+            console.error(error);
+            Toastify({
+                text: "❌ Error de conexión con el servidor",
+                duration: 3000,
+                gravity: "bottom",
+                position: "right",
+                backgroundColor: "#3a86ff",
+                stopOnFocus: true
+            }).showToast();
+        }
+    });
+});
+
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="contact-container">
+    <h1>Contacto</h1>
+    <p class="intro-text">¿Tienes alguna pregunta? Completa el formulario y te responderé lo antes posible.</p>
+
+    <form class="contact-form">
+        <div class="form-group">
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+        </div>
+
+        <div class="form-group">
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" placeholder="Escribe tu mensaje aquí..." rows="5" required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Enviar mensaje</button>
+    </form>
+</div>
+{% endblock %}

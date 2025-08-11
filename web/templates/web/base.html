@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Portafolio Oriol Abad{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="main-header">
+        <div class="container">
+            <div class="logo"><a href="{% url 'inicio' %}">Oriol Abad</a></div>
+            <nav class="menu">
+                <a href="{% url 'quien_soy' %}">Quién soy</a>
+                <a href="{% url 'contacto' %}">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CONTENIDO -->
+    <main class="contenido">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <p>© 2025 Oriol Abad. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Chatbase Script -->
+    <script>
+    (function(){
+        if(!window.chatbase || window.chatbase("getState")!=="initialized"){
+            window.chatbase=(...arguments)=>{
+                if(!window.chatbase.q){window.chatbase.q=[]}
+                window.chatbase.q.push(arguments)
+            };
+            window.chatbase=new Proxy(window.chatbase,{
+                get(target,prop){
+                    if(prop==="q"){return target.q}
+                    return(...args)=>target(prop,...args)
+                }
+            });
+        }
+        const onLoad=function(){
+            const script=document.createElement("script");
+            script.src="https://www.chatbase.co/embed.min.js";
+            script.id="OaaPZ7sZLApe7fArWBBoU";  /* <-- tu ID de Chatbase */
+            script.domain="www.chatbase.co";
+            document.body.appendChild(script);
+        };
+        if(document.readyState==="complete"){onLoad()}
+        else{window.addEventListener("load",onLoad)}
+    })();
+    </script>
+
+    <!-- Identity Verification -->
+    <script>
+        window.chatbase("setIdentity", {
+            user_id: "{{ request.user.id|default:'guest' }}",
+            user_name: "{{ request.user.username|default:'Invitado' }}"
+        });
+    </script>
+</body>
+</html>
