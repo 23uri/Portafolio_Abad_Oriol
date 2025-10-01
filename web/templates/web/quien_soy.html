@@ -4,10 +4,32 @@
 {% block title %}Quién soy{% endblock %}
 
 {% block extra_head %}
-<link rel="stylesheet" href="{% static 'web/css/quien_soy.css' %}">
+<link rel="stylesheet" href="{% static 'css/quien_soy.css' %}">
 {% endblock %}
 
 {% block content %}
-    <h1>Sobre mí</h1>
-    <p>Soy Oriol Abad, desarrollador apasionado por la IA y las tecnologías web.</p>
+    <div class="about-wrapper">
+        <div class="about-intro">
+            <h1>Sobre mí</h1>
+            <p>
+                Soy <strong>Oriol Abad</strong>, desarrollador enfocado en construir soluciones limpias y eficientes.
+                Me apasionan la <strong>IA</strong>, el <strong>backend en Python</strong> y las interfaces web simples pero cuidadas.
+            </p>
+            <div class="cv-actions">
+                <a class="button primary" href="{% static 'files/Curriculum_Abad_Oriol.pdf' %}" target="_blank" rel="noopener">Abrir CV</a>
+                <a class="button ghost" href="{% static 'files/Curriculum_Abad_Oriol.pdf' %}" download>Descargar PDF</a>
+            </div>
+        </div>
+
+        <div class="cv-viewer">
+            <iframe
+                class="pdf-frame"
+                src="{% static 'files/Curriculum_Abad_Oriol.pdf' %}#view=FitH"
+                title="Curriculum de Oriol Abad"
+            ></iframe>
+            <noscript>
+                <p>Tu navegador no puede mostrar el PDF. Puedes descargarlo desde el botón de arriba.</p>
+            </noscript>
+        </div>
+    </div>
 {% endblock %}
