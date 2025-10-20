@@ -129,14 +129,18 @@ a:hover {
     inset: 0; /* top:0; right:0; bottom:0; left:0; */
     background: rgba(10, 46, 115, 0.88);
     color: white;
-    display: none;
+    /* use visibility + pointer-events to allow smooth transitions */
+    visibility: hidden;
+    pointer-events: none;
     z-index: 9999;
     opacity: 0;
-    transform: translateY(6px) scale(0.995);
-    transition: opacity 300ms cubic-bezier(.2,.9,.2,1), transform 300ms cubic-bezier(.2,.9,.2,1);
-    /* Subtle backdrop blur (optional on supported browsers) */
-    -webkit-backdrop-filter: blur(6px);
-    backdrop-filter: blur(6px);
+    transform: translateY(8px) scale(0.995);
+    transition: opacity 360ms cubic-bezier(.2,.9,.2,1), transform 360ms cubic-bezier(.2,.9,.2,1), visibility 0s linear 360ms;
+    will-change: transform, opacity;
+    /* Lighter backdrop blur for performance */
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    -webkit-transform: translateZ(0);
 }
 
 .menu-overlay .overlay-inner {
@@ -144,8 +148,9 @@ a:hover {
     display: flex;
     flex-direction: column;
     /* start slightly shifted so we can animate into place */
-    transform: translateY(6px);
-    transition: transform 340ms cubic-bezier(.2,.9,.2,1);
+    transform: translateY(10px);
+    transition: transform 420ms cubic-bezier(.2,.9,.2,1);
+    will-change: transform, opacity;
 }
 
 .overlay-header {
@@ -213,18 +218,17 @@ a:hover {
 
 /* When checkbox is checked, show overlay and flip icons */
 .menu-toggle-checkbox:checked ~ .menu-overlay {
-    display: block;
+    visibility: visible;
+    pointer-events: auto;
     opacity: 1;
+    transform: translateY(0) scale(1);
+    /* ensure visibility changes immediately when opening */
+    transition-delay: 0s;
 }
 
 /* When open, bring inner content to place for a smoother entrance */
 .menu-toggle-checkbox:checked ~ .menu-overlay .overlay-inner {
     transform: translateY(0);
-}
-
-/* Slight scale/settle for overlay when opening */
-.menu-toggle-checkbox:checked ~ .menu-overlay {
-    transform: translateY(0) scale(1);
 }
 
 .menu-toggle-checkbox:checked + .menu-toggle .menu-closed { display: none; }
