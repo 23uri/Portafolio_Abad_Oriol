@@ -3,6 +3,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Portafolio Oriol Abad{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 
@@ -11,14 +12,31 @@
 <body>
     <!-- HEADER -->
     <header class="main-header">
-        <div class="container">
-            <div class="logo"><a href="{% url 'inicio' %}">Oriol Abad</a></div>
-            <nav class="menu">
-                <a href="{% url 'quien_soy' %}">Quién soy</a>
-                <a href="{% url 'contacto' %}">Contacto</a>
-            </nav>
+    <div class="container header-inner">
+        <!-- Logo -->
+        <div class="logo">
+            <a href="{% url 'inicio' %}">Oriol Abad</a>
         </div>
-    </header>
+
+        <!-- Checkbox oculto -->
+        <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox" />
+
+        <!-- Botón hamburguesa -->
+        <label for="menu-toggle" class="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </label>
+
+        <!-- Menú -->
+        <nav class="menu">
+            <a href="{% url 'quien_soy' %}">Quién soy</a>
+            <a href="{% url 'contacto' %}">Contacto</a>
+        </nav>
+    </div>
+</header>
+
+
 
     <!-- CONTENIDO -->
     <main class="contenido">

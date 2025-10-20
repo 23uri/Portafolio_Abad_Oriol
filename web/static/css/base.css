@@ -1,10 +1,19 @@
-/* General layout */
+/* ==================== RESET Y LAYOUT GENERAL ==================== */
 html, body {
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button, a, input, textarea {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
 }
 
 body {
@@ -15,7 +24,6 @@ body {
     min-height: 100vh;
 }
 
-/* Enlaces */
 a {
     text-decoration: none;
     color: white;
@@ -25,7 +33,7 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Header */
+/* ==================== HEADER ==================== */
 .main-header {
     background: linear-gradient(90deg, #0a2e73, #3a86ff);
     padding: 20px 0;
@@ -38,20 +46,50 @@ a:hover {
     align-items: center;
     max-width: 1100px;
     margin: 0 auto;
+    gap: 12px;
 }
 
+/* Logo */
 .logo a {
     font-size: 24px;
     font-weight: bold;
     color: white;
 }
 
+/* Menú desktop */
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
 .menu a {
-    margin-left: 20px;
+    color: inherit;
     font-weight: 500;
 }
 
-/* Footer */
+/* ==================== BOTÓN HAMBURGUESA ==================== */
+.menu-toggle-checkbox {
+    display: none; /* checkbox invisible */
+}
+
+.menu-toggle {
+    display: none; /* oculto en desktop */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 2px;
+}
+
+/* ==================== FOOTER ==================== */
 .main-footer {
     background: linear-gradient(90deg, #0a2e73, #3a86ff);
     text-align: center;
@@ -59,19 +97,108 @@ a:hover {
     color: white;
 }
 
-/* Main content layout */
+/* ==================== MAIN CONTENT ==================== */
 main {
-    flex: 1; /* ocupa el espacio restante */
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-
 }
 
-/* Contenedor del contenido */
 .contenido {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 12px;
+}
 
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1024px) {
+    .main-header .container {
+        max-width: 95%;
+        padding: 0 20px;
+    }
+
+    .logo a {
+        font-size: 22px;
+    }
+
+    .menu a {
+        margin-left: 15px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        padding: 15px 0;
+    }
+
+    .main-header .container {
+        gap: 10px;
+    }
+
+    .logo a {
+        font-size: 20px;
+    }
+
+    /* Mostrar hamburguesa y ocultar menú por defecto */
+    .menu-toggle {
+        display: flex;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 8px;
+        gap: 6px;
+    }
+
+    /* Mostrar menú cuando checkbox está checked */
+    .menu-toggle-checkbox:checked + .menu-toggle + .menu {
+        display: flex;
+    }
+
+    /* Links del menú móvil */
+    .menu a {
+        margin: 0;
+        padding: 10px 12px;
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 10px;
+        text-align: center;
+        transition: background 0.3s ease;
+    }
+
+    .menu a:hover {
+        background: rgba(255, 255, 255, 0.2);
+        text-decoration: none;
+    }
+
+    .main-footer {
+        padding: 20px 15px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-header {
+        padding: 10px 0;
+    }
+
+    .main-header .container {
+        padding: 0 15px;
+    }
+
+    .logo a {
+        font-size: 18px;
+    }
+
+    .main-footer {
+        padding: 15px 10px;
+        font-size: 13px;
+    }
 }
