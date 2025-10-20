@@ -22,10 +22,13 @@
         <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox" />
 
         <!-- Botón hamburguesa -->
-        <label for="menu-toggle" class="menu-toggle">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+        <label for="menu-toggle" class="menu-toggle" aria-label="Abrir menú">
+            <span class="hamburger" aria-hidden="true">
+                <span class="bar bar1"></span>
+                <span class="bar bar2"></span>
+                <span class="bar bar3"></span>
+            </span>
+            <span class="sr-only">Alternar menú</span>
         </label>
 
         <!-- Menú -->
@@ -33,6 +36,27 @@
             <a href="{% url 'quien_soy' %}">Quién soy</a>
             <a href="{% url 'contacto' %}">Contacto</a>
         </nav>
+
+        <!-- Fullscreen overlay menu (hidden by default, shown when checkbox checked) -->
+        <div class="menu-overlay" aria-hidden="true">
+            <div class="overlay-inner">
+                <header class="overlay-header">
+                    <div class="overlay-logo"><a href="{% url 'inicio' %}">Oriol Abad</a></div>
+                    <label for="menu-toggle" class="overlay-close" aria-label="Cerrar menú">
+                        <span class="hamburger close-x" aria-hidden="true">
+                            <span class="bar bar1"></span>
+                            <span class="bar bar2"></span>
+                            <span class="bar bar3"></span>
+                        </span>
+                    </label>
+                </header>
+
+                <nav class="overlay-nav" role="navigation" aria-label="Principal">
+                    <a href="{% url 'quien_soy' %}">Quién soy</a>
+                    <a href="{% url 'contacto' %}">Contacto</a>
+                </nav>
+            </div>
+        </div>
     </div>
 </header>
 
