@@ -313,19 +313,140 @@ body {
     }
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablets grandes (769px - 1024px) */
+@media (max-width: 1024px) {
+    .hero {
+        height: 600px;
+    }
+    
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+    }
+    
+    .about {
+        padding: 60px 20px;
+        height: auto;
+        min-height: 600px;
+    }
+    
+    .about-image img {
+        width: 280px;
+        height: 280px;
+    }
+    
+    .about-text h2 {
+        font-size: 1.8rem;
+    }
+    
+    .projects {
+        padding: 60px 20px;
+        height: auto;
+        min-height: 600px;
+    }
+    
+    .projects h2 {
+        font-size: 2rem;
+    }
+    
+    .cta {
+        padding: 50px 20px;
+        height: auto;
+        min-height: 500px;
+    }
+    
+    .cta h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Tablets (481px - 768px) */
 @media (max-width: 768px) {
+    .hero {
+        height: 500px;
+    }
+    
     .hero h1 {
         font-size: 2.2rem;
     }
+    
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+    
+    .hero .btn {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+    
     .about {
         flex-direction: column;
         text-align: center;
+        padding: 50px 20px;
+        height: auto;
+        min-height: 500px;
+        gap: 30px;
     }
+    
     .about-image img {
         width: 220px;
-        height: 220px; /* mantiene cuadrado en móvil */
-        object-fit: contain;
+        height: 220px;
+    }
+    
+    .about-text {
+        max-width: 100%;
+    }
+    
+    .about-text h2 {
+        font-size: 1.6rem;
+    }
+    
+    .about-text p {
+        font-size: 0.95rem;
+    }
+    
+    .projects {
+        padding: 50px 20px;
+        height: auto;
+        min-height: 500px;
+    }
+    
+    .projects h2 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+    
+    .project-cards {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    .card img {
+        height: 160px;
+    }
+    
+    .card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .card p {
+        font-size: 0.9rem;
+    }
+    
+    .cta {
+        padding: 40px 20px;
+        height: auto;
+        min-height: 400px;
+    }
+    
+    .cta h2 {
+        font-size: 1.6rem;
     }
     
     .tech-item {
@@ -344,5 +465,207 @@ body {
     
     .tech-track {
         animation: scroll 20s linear infinite;
+    }
+}
+
+/* Móviles grandes (321px - 480px) */
+@media (max-width: 480px) {
+    .hero {
+        height: 400px;
+    }
+    
+    /* Optimización del video para móviles */
+    .hero-video {
+        object-position: center center;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+    
+    .hero p {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+    
+    .hero .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .about {
+        padding: 40px 15px;
+        gap: 25px;
+    }
+    
+    .about-image img {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .about-text h2 {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+    }
+    
+    .about-text p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .btn-secondary {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .projects {
+        padding: 40px 15px;
+    }
+    
+    .projects h2 {
+        font-size: 1.6rem;
+        margin-bottom: 25px;
+    }
+    
+    .project-cards {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .card img {
+        height: 140px;
+    }
+    
+    .card h3 {
+        font-size: 1.1rem;
+        margin: 12px;
+    }
+    
+    .card p {
+        font-size: 0.85rem;
+        margin: 0 12px 15px;
+    }
+    
+    .cta {
+        padding: 30px 15px;
+    }
+    
+    .cta h2 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+    
+    .tech-item {
+        margin: 0 15px;
+        min-width: 80px;
+    }
+    
+    .tech-item img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .tech-item span {
+        font-size: 0.7rem;
+    }
+}
+
+/* Móviles pequeños (hasta 320px) */
+@media (max-width: 320px) {
+    .hero {
+        height: 350px;
+    }
+    
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+    
+    .hero p {
+        font-size: 0.8rem;
+    }
+    
+    .hero .btn {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+    
+    .about {
+        padding: 30px 10px;
+    }
+    
+    .about-image img {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .about-text h2 {
+        font-size: 1.2rem;
+    }
+    
+    .about-text p {
+        font-size: 0.8rem;
+    }
+    
+    .projects {
+        padding: 30px 10px;
+    }
+    
+    .projects h2 {
+        font-size: 1.4rem;
+    }
+    
+    .card h3 {
+        font-size: 1rem;
+    }
+    
+    .card p {
+        font-size: 0.8rem;
+    }
+    
+    .cta {
+        padding: 25px 10px;
+    }
+    
+    .cta h2 {
+        font-size: 1.2rem;
+    }
+    
+    .tech-item {
+        margin: 0 10px;
+        min-width: 70px;
+    }
+    
+    .tech-item img {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .tech-item span {
+        font-size: 0.65rem;
+    }
+    
+    /* Pausar animación en dispositivos muy pequeños para mejor rendimiento */
+    .tech-track {
+        animation: scroll 15s linear infinite;
+    }
+}
+
+/* Optimización para dispositivos con preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+    .tech-track {
+        animation: none;
+    }
+    
+    .hero h1,
+    .hero p,
+    .hero .btn,
+    .about-text h2,
+    .about-image img,
+    .card,
+    .cta h2 {
+        animation: none;
+        opacity: 1;
+        transform: none;
     }
 }

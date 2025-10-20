@@ -87,22 +87,143 @@ h1 {
     border: none;
 }
 
-/* Responsivo */
-@media (max-width: 992px) {
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablets grandes (769px - 1024px) */
+@media (max-width: 1024px) {
+    .about-wrapper {
+        max-width: 95%;
+        margin: 1rem auto 2.5rem;
+        gap: 1.5rem;
+    }
+    
+    .about-intro h1 {
+        font-size: 1.8rem;
+    }
+    
+    .about-intro p {
+        font-size: 0.95rem;
+    }
+    
+    .pdf-frame {
+        height: 70vh;
+    }
+}
+
+/* Tablets (481px - 768px) */
+@media (max-width: 768px) {
     .about-wrapper {
         grid-template-columns: 1fr;
+        max-width: 90%;
+        margin: 0.8rem auto 2rem;
+        gap: 1.2rem;
     }
+    
+    .about-intro {
+        padding: 0 10px;
+    }
+    
+    .about-intro h1 {
+        font-size: 1.6rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    .about-intro p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .cv-actions {
+        gap: 0.6rem;
+    }
+    
+    .button {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .cv-viewer {
+        min-height: 70vh;
+        border-radius: 0.5rem;
+    }
+    
     .pdf-frame {
         height: 65vh;
     }
 }
 
-@media (max-width: 600px) {
+/* Móviles grandes (321px - 480px) */
+@media (max-width: 480px) {
+    .about-wrapper {
+        max-width: 95%;
+        margin: 0.5rem auto 1.5rem;
+        gap: 1rem;
+    }
+    
+    .about-intro {
+        padding: 0 5px;
+    }
+    
+    .about-intro h1 {
+        font-size: 1.4rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .about-intro p {
+        font-size: 0.85rem;
+        line-height: 1.4;
+        margin-bottom: 0.8rem;
+    }
+    
     .cv-actions {
         flex-direction: column;
         align-items: stretch;
+        gap: 0.5rem;
     }
+    
+    .button {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+        text-align: center;
+    }
+    
+    .cv-viewer {
+        min-height: 60vh;
+        border-radius: 0.4rem;
+    }
+    
     .pdf-frame {
-        height: 60vh;
+        height: 55vh;
+    }
+}
+
+/* Móviles pequeños (hasta 320px) */
+@media (max-width: 320px) {
+    .about-wrapper {
+        max-width: 98%;
+        margin: 0.3rem auto 1rem;
+        gap: 0.8rem;
+    }
+    
+    .about-intro h1 {
+        font-size: 1.2rem;
+    }
+    
+    .about-intro p {
+        font-size: 0.8rem;
+        line-height: 1.3;
+    }
+    
+    .button {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+    }
+    
+    .cv-viewer {
+        min-height: 55vh;
+    }
+    
+    .pdf-frame {
+        height: 50vh;
     }
 }
