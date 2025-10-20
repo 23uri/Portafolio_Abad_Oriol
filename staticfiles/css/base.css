@@ -1,0 +1,77 @@
+/* General layout */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f2f2f2;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Enlaces */
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Header */
+.main-header {
+    background: linear-gradient(90deg, #0a2e73, #3a86ff);
+    padding: 20px 0;
+    color: white;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.logo a {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.menu a {
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+/* Footer */
+.main-footer {
+    background: linear-gradient(90deg, #0a2e73, #3a86ff);
+    text-align: center;
+    padding: 15px 0;
+    color: white;
+}
+
+/* Main content layout */
+main {
+    flex: 1; /* ocupa el espacio restante */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+}
+
+/* Contenedor del contenido */
+.contenido {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+}

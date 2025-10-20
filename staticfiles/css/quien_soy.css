@@ -1,0 +1,108 @@
+h1 {
+    color: #333;
+}
+/* Restringimos el color de párrafos al bloque de intro para no afectar el footer */
+.about-intro p {
+    color: #2c3e50;
+}
+/* Layout contenedor */
+.about-wrapper {
+    display: grid;
+    grid-template-columns: 1.1fr 1.6fr;
+    gap: 2rem;
+    align-items: start;
+    margin-top: 1rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2.5rem;
+}
+
+.about-intro h1 {
+    margin: 0 0 .5rem 0;
+    text-align: center;
+}
+
+.about-intro p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Hacer que la intro se centre y ocupe el mismo ancho que el iframe */
+.about-intro {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cv-actions {
+    display: flex;
+    gap: .75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.button {
+    display: inline-block;
+    padding: .6rem 1rem;
+    border-radius: .5rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform .1s ease, box-shadow .2s ease, background-color .2s ease;
+}
+
+.button.primary {
+    background: #3a86ff;
+    color: #ffffff;
+    box-shadow: 0 6px 18px rgba(58, 134, 255, 0.25);
+}
+.button.primary:hover {
+    transform: translateY(-1px);
+}
+
+.button.ghost {
+    border: 2px solid #3a86ff;
+    color: #3a86ff;
+}
+.button.ghost:hover {
+    background: rgba(58, 134, 255, 0.06);
+}
+
+/* Visor PDF */
+.cv-viewer {
+    width: 100%;
+    min-height: 80vh;
+    background: #f8f8fb;
+    border: 1px solid #ececf5;
+    border-radius: .75rem;
+    overflow: hidden;
+    grid-column: 1 / -1;
+}
+
+.pdf-frame {
+    width: 100%;
+    height: 85vh;
+    border: none;
+}
+
+/* Responsivo */
+@media (max-width: 992px) {
+    .about-wrapper {
+        grid-template-columns: 1fr;
+    }
+    .pdf-frame {
+        height: 65vh;
+    }
+}
+
+@media (max-width: 600px) {
+    .cv-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .pdf-frame {
+        height: 60vh;
+    }
+}

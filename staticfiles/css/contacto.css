@@ -1,0 +1,87 @@
+/* Contenedor principal */
+.contact-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Título */
+.contact-container h1 {
+    text-align: center;
+    color: #3a86ff;
+    margin-bottom: 10px;
+}
+
+/* Texto introductorio */
+.intro-text {
+    text-align: center;
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* Campos del formulario */
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+/* Efecto al enfocar */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #3a86ff;
+    box-shadow: 0 0 6px rgba(58, 134, 255, 0.4);
+}
+
+/* Botón */
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(90deg, #0a2e73, #3a86ff);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* Efecto hover */
+.submit-btn:hover {
+    background: linear-gradient(90deg, #08469c, #5a9dff);
+}
+
+/* Estado inicial oculto y desplazado */
+.contact-container {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+/* Cuando entra en pantalla */
+.contact-container.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
