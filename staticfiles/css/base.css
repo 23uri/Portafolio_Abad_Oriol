@@ -129,13 +129,11 @@ a:hover {
     inset: 0; /* top:0; right:0; bottom:0; left:0; */
     background: rgba(10, 46, 115, 0.88);
     color: white;
-    /* keep in flow for transitions */
-    visibility: hidden;
-    pointer-events: none;
+    display: none;
     z-index: 9999;
     opacity: 0;
-    transform: translateY(10px) scale(0.995);
-    transition: opacity 360ms cubic-bezier(.2,.9,.2,1), transform 360ms cubic-bezier(.2,.9,.2,1), visibility 0s linear 360ms;
+    transform: translateY(6px) scale(0.995);
+    transition: opacity 300ms cubic-bezier(.2,.9,.2,1), transform 300ms cubic-bezier(.2,.9,.2,1);
     /* Subtle backdrop blur (optional on supported browsers) */
     -webkit-backdrop-filter: blur(6px);
     backdrop-filter: blur(6px);
@@ -220,23 +218,13 @@ a:hover {
 }
 
 /* When open, bring inner content to place for a smoother entrance */
-.menu-toggle-checkbox:checked ~ .menu-overlay {
-    visibility: visible;
-    pointer-events: auto;
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    transition-delay: 0s;
-    /* ensure visibility becomes immediate when opening */
-    transition: opacity 360ms cubic-bezier(.2,.9,.2,1), transform 360ms cubic-bezier(.2,.9,.2,1);
-}
-
 .menu-toggle-checkbox:checked ~ .menu-overlay .overlay-inner {
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
 }
 
-/* When hiding, delay the visibility change until after transition */
-.menu-overlay[style*="visibility: hidden"] {
-    transition-delay: 0s;
+/* Slight scale/settle for overlay when opening */
+.menu-toggle-checkbox:checked ~ .menu-overlay {
+    transform: translateY(0) scale(1);
 }
 
 .menu-toggle-checkbox:checked + .menu-toggle .menu-closed { display: none; }

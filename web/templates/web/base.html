@@ -106,5 +106,38 @@
             user_name: "{{ request.user.username|default:'Invitado' }}"
         });
     </script>
+    <!-- Menu close interactions: click outside, ESC, click link -->
+    <script>
+        (function(){
+            const checkbox = document.getElementById('menu-toggle');
+            const overlay = document.querySelector('.menu-overlay');
+            const inner = document.querySelector('.overlay-inner');
+            if(!checkbox || !overlay || !inner) return;
+
+            // Click outside overlay-inner (close if the clicked element is not inside .overlay-inner)
+            overlay.addEventListener('click', (e) => {
+                try {
+                    if (!inner.contains(e.target)) {
+                        checkbox.checked = false;
+                    }
+                } catch (err) {
+                    // fallback: close if click target is the overlay itself
+                    if (e.target === overlay) checkbox.checked = false;
+                }
+            });
+
+            // Close on Escape
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && checkbox.checked) {
+                    checkbox.checked = false;
+                }
+            });
+
+            // Close when clicking any overlay link
+            overlay.querySelectorAll('a').forEach(a => {
+                a.addEventListener('click', () => { checkbox.checked = false; });
+            });
+        })();
+    </script>
 </body>
 </html>
